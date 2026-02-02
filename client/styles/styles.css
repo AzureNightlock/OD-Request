@@ -1,0 +1,249 @@
+/* Deep maroon palette with brand tone #821238 */
+:root{
+  --maroon-brand: #821238;   /* requested brand maroon */
+  --maroon-800: #6c0f29;
+  --maroon-700: #79122e;     /* supporting maroon */
+  --maroon-050: #f7eaee;
+
+  --ink-900: #0f172a;
+  --ink-700: #334155;
+  --ink-500: #64748b;
+  --line: #e5e7eb;
+  --card: #ffffff;
+  --bg: #fafafa;
+  --focus: #2563eb;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-900);
+  font: 400 16px/1.5 "Arvo", "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container { width: min(1100px, 92vw); margin-inline: auto; }
+
+/* ===== Masthead (two tiers) ===== */
+.masthead-top {
+  height: 14px;
+  background: #9a213a; /* thin lighter strip */
+}
+.masthead-main {
+  background: var(--maroon-brand); /* solid brand color to match the logo */
+  color: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid #5b0f25;
+  box-shadow: 0 1px 0 rgba(255,255,255,.06) inset;
+}
+.masthead-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.masthead-left { display: flex; align-items: center; gap: 12px; }
+.masthead-logo { height: 60px; width: auto; object-fit: contain; }
+@media (max-width: 720px){ .masthead-logo { height: 44px; } }
+.masthead-right { display: flex; align-items: center; }
+.lang-btn {
+  color: #fff; background: transparent; border: 0; font-weight: 500;
+  padding: 6px 8px; border-radius: 6px; cursor: pointer;
+}
+.lang-btn:hover { background: rgba(255,255,255,.08); }
+
+/* ===== Card & form ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px auto 32px;  /* regular spacing since big header is removed */
+  box-shadow: 0 12px 30px rgba(16,24,40,.06);
+}
+
+/* Mini header inside the card */
+.mini-header{
+  background: linear-gradient(180deg, var(--maroon-brand) 0%, var(--maroon-700) 100%);
+  color: #fff;
+  font-weight: 700;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin: 4px 0 10px;
+  box-shadow: 0 6px 16px rgba(130,18,56,.18);
+  display: flex;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  margin: 8px 0 14px;
+  font-weight: 700;
+  color: var(--maroon-brand);
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px){
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+.field { display: grid; gap: 6px; }
+label { font-size: 0.9rem; color: var(--ink-700); }
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+input:focus, select:focus {
+  border-color: var(--maroon-brand);
+  box-shadow: 0 0 0 3px rgba(130,18,56,.18);
+}
+
+/* ===== Dropzone ===== */
+.dropzone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 14px;
+  border: 1.8px dashed var(--maroon-brand);
+  border-radius: 12px;
+  background: var(--maroon-050);
+  cursor: pointer;
+  user-select: none;
+}
+.dropzone:hover { background: #f3e2e7; }
+.dropzone:focus-visible { outline: 3px solid rgba(37,99,235,.4); outline-offset: 2px; }
+
+.dz-icon { font-size: 1.2rem; }
+.dz-text strong { color: var(--maroon-brand); }
+.dz-sub { color: var(--ink-500); font-size: 0.82rem; }
+.linklike { color: var(--maroon-brand); text-decoration: underline; }
+
+.hint { margin: 6px 2px 0; color: var(--ink-500); font-size: .88rem; }
+
+/* ===== Buttons ===== */
+.actions { display: flex; gap: 10px; margin-top: 10px; }
+.btn {
+  appearance: none; border: 0; border-radius: 10px;
+  padding: 10px 14px; font-weight: 700; cursor: pointer;
+}
+.btn-primary {
+  background: var(--maroon-brand);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(130,18,56,.22);
+}
+.btn-primary:hover { background: #6f0f2f; }
+.btn-ghost {
+  background: transparent; color: var(--ink-700); border: 1px solid var(--line);
+}
+.btn-ghost:hover { background: #fff; }
+
+/* ===== Status & footer ===== */
+.status { margin-top: 8px; color: var(--ink-700); min-height: 1em; }
+
+.app-footer {
+  padding: 16px 0 40px; color: var(--ink-500);
+  text-align: center;
+}
+
+/* ===============================
+   Masthead scale-up (safe override)
+   Added by ChatGPT on 2025-10-18
+   =============================== */
+
+:root{
+  /* Tunable sizes — adjust the numbers if you want a touch bigger/smaller */
+  --masthead-top-h: clamp(16px, 2vh, 22px);
+  --masthead-pad-y: clamp(16px, 2.6vh, 24px);
+  --masthead-logo-h-desktop: clamp(72px, 9vw, 96px);
+  --masthead-logo-h-mobile: clamp(52px, 8vw, 64px);
+}
+
+/* Thin strip height */
+.masthead-top { height: var(--masthead-top-h); }
+
+/* Vertical padding for the main bar */
+.masthead-main { padding: var(--masthead-pad-y) 0; }
+
+/* Logo height scales responsively, preserves aspect ratio */
+.masthead-logo { height: var(--masthead-logo-h-desktop); width: auto; }
+@media (max-width: 720px){
+  .masthead-logo { height: var(--masthead-logo-h-mobile); }
+}
+
+/* === Masthead full-bleed tweak: push logo closer to the edge (scoped) === */
+.masthead .container{
+  width: 100%;              /* break out of centered 92vw container just for masthead */
+  margin-inline: 0;         /* remove side margins so it can hug the viewport */
+  padding-inline: clamp(8px, 1.8vw, 20px); /* keep a small, responsive gutter */
+  box-sizing: border-box;
+}
+
+/* === Validation states & messages === */
+:root{
+  --error: #dc2626;  /* red-600 */
+  --ok: #059669;     /* emerald-600 */
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid .dropzone {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(220,38,38,.15) !important;
+}
+
+.field.valid input,
+.field.valid select {
+  border-color: var(--ok);
+}
+
+.error-text {
+  color: var(--error);
+  font-size: 0.82rem;
+  min-height: 1.1em; /* reserve space to avoid layout shift */
+}
+
+.dropzone.has-file {
+  border-style: solid;
+  background: #eef8f2;
+}
+
+.btn[disabled]{
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.select-caret{
+  /* hide the native arrow so we can position our own */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* control the arrow’s size and right inset */
+  --icon-size: 16px;
+  --icon-inset: 10px;                 /* change this to move the arrow horizontally */
+
+  /* add room on the right for the arrow */
+  height: 44px;
+  padding: 10px calc(12px + var(--icon-size) + var(--icon-inset)) 10px 12px;
+
+  /* draw our own arrow and place it exactly */
+  background:
+    no-repeat right var(--icon-inset) center / var(--icon-size) var(--icon-size)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z'/%3E%3C/svg%3E");
+  color: #222;  /* arrow uses currentColor */
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-right: -4px;
+}

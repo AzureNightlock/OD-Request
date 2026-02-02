@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OD Request</title>
+  <link rel="icon" type="image/x-icon" href="/assets/sathyabama-favicon.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/styles.css" />
+  <script type="module" src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Masthead -->
+  <div class="masthead">
+    <div class="masthead-top"></div>
+    <div class="masthead-main">
+      <div class="container masthead-row">
+        <div class="masthead-left">
+          <img src="/assets/sathyabama-logo.png" alt="Sathyabama Institute of Science and Technology" class="masthead-logo" />
+        </div>
+        <div class="masthead-right">
+          <button type="button" class="lang-btn" aria-label="Change language">ENGLISH (EN) ▾</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- novalidate so we control messages -->
+    <form id="od-form" class="card" autocomplete="on" novalidate>
+      <div class="mini-header">OD Request</div>
+
+      <!-- Student Details -->
+      <section>
+        <h2 class="section-title">Student Details</h2>
+
+        <div class="grid">
+          <div class="field">
+            <label for="regno">Register Number</label>
+            <input id="regno" name="regno" type="text" placeholder="Ex:1456XXXXX" required aria-describedby="regno-error" inputmode="numeric" pattern="[0-9]*" minlength="6" maxlength="15"/>
+            <small class="error-text" id="regno-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" minlength="2" maxlength="100" pattern="[A-Za-z\s]+" placeholder="Full Name" required aria-describedby="name-error" />
+            <small class="error-text" id="name-error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="email">College Email</label>
+            <input id="email" name="email" type="email" placeholder="student@sathyabama.edu" required aria-describedby="email-error" />
+            <small class="error-text" id="email-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="course">Course / Programme</label>
+            <select id="course" class="select-caret" name="course" required aria-describedby="course-error">
+              <option value="" disabled selected>Select your programme</option>
+              <optgroup label="B.E.">
+                <option>B.E. – Computer Science and Engineering</option>
+                <option>B.E. – Electronics and Communication Engineering</option>
+                <option>B.E. – Electrical and Electronics Engineering</option>
+                <option>B.E. – Mechanical Engineering</option>
+                <option>B.E. – Civil Engineering</option>
+                <option>B.E. – Aeronautical Engineering</option>
+                <option>B.E. – Mechatronics</option>
+              </optgroup>
+              <optgroup label="B.Tech">
+                <option>B.Tech – Information Technology</option>
+                <option>B.Tech – Chemical Engineering</option>
+                <option>B.Tech – Biotechnology</option>
+                <option>B.Tech – Biomedical Engineering</option>
+              </optgroup>
+              <optgroup label="B.Des">
+                <option>B.Des – Design</option>
+              </optgroup>
+            </select>
+            <small class="error-text" id="course-error" aria-live="polite"></small>
+          </div>
+        </div>
+      </section>
+
+      <!-- OD Details -->
+      <section>
+        <h2 class="section-title">OD Details</h2>
+
+        <div class="grid">
+          <div class="field">
+            <label for="event">Event Name</label>
+            <input id="event" name="event" type="text" placeholder="Hackathon/Symposium/Sports..." required aria-describedby="event-error" />
+            <small class="error-text" id="event-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="date">Event Date</label>
+            <input id="date" name="date" type="date" required aria-describedby="date-error" />
+            <small class="error-text" id="date-error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Upload OD Letter / Proof (PDF/JPG/PNG/WEBP)</label>
+          <div id="drop-zone" tabindex="0" class="dropzone" role="button" aria-label="Upload file by clicking or dragging" aria-describedby="file-error">
+            <span class="dz-icon">⬆</span>
+            <div class="dz-text">
+              <strong>Drag & drop</strong> your file here, or <span class="linklike">browse</span>
+              <div class="dz-sub">Max 10 MB • PDF/JPG/PNG/WEBP</div>
+            </div>
+          </div>
+          <input type="file" id="file-input" name="file" accept=".pdf,.png,.jpg,.jpeg,.webp" hidden />
+          <input type="hidden" id="file-id" name="proof_file_id" />
+          <p id="file-hint" class="hint"></p>
+          <small class="error-text" id="file-error" aria-live="polite"></small>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit" id="submit-btn" class="btn btn-primary">Submit Request</button>
+        <button type="reset" id="reset-btn" class="btn btn-ghost">Reset</button>
+      </div>
+      <p id="form-status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <small>© 2023 Sathyabama Institute of Science and Technology. All rights reserved.</small>
+    </div>
+  </footer>
+</body>
+</html>
